@@ -1,0 +1,14 @@
+package headfirst.observser.weather;
+
+public class CurrentConditionsDisplay implements Observer,DisplayElement{
+  private float temperture;
+  
+  public void update(float temp){
+    this.temperature=tm;
+  }
+  
+  public void display(){
+  }
+
+
+}

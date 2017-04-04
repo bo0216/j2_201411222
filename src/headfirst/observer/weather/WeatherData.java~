@@ -1,0 +1,12 @@
+package headfirst.observer.weather;
+
+public class WeatherData implements Subject{
+  private ArrayList observers;
+  public void registerObserver(Observer o){
+    observers.add(0);
+  }
+  public void removeObserver(Observer o);
+  public void notifyObserver();
+  
+  }
+
