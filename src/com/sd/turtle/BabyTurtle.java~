@@ -1,0 +1,18 @@
+package com.sd.turtle;
+
+import java.util.Obervable;
+import java.util.Observer;
+
+public class BabyTurtle extends Observable{ //observable이 클래스라 extends bservable,turtle 는 안됨
+  Turtle baby;//turtle을 상속이아니라 속성으로 가지고 있느것임
+  //turtle과 babyturtle 은 연관관계라 필요한 것만 가져다 쓰면됨.
+  ArrayList<Observer> obs;
+  public void addObserver(Observer o){
+    obs.add(o);
+       
+  
+  }
+    
+  
+  
+}

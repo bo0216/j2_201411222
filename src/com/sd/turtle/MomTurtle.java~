@@ -1,0 +1,15 @@
+package com.sd.turtle;
+
+import java.util.Observer;
+import java.util.Observable;
+import java.awt.geom.Point2D.Double;
+
+public class MomTurtle extends Turtle implements Observer{
+  Double babyCurpos;
+  pulic void update(Observable o,Object arg){
+    babyCourpos=((BabyTurtle)o).myCurpos;
+    moveTo(babyCurpos);
+    
+  }
+
+}
