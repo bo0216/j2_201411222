@@ -1,0 +1,17 @@
+package headfirst.command.undo;
+
+public class RemoteControlWithUndo{
+  Command[] slots;
+  public SimpleRemoteControl(){
+    slots=new Command[7];
+    Command noCommand=new NoCommand();
+    for(int i=0;i<7;i++){
+      slots[i]=noCommand;
+  }
+  public void setCommand(int slot,Command command){//slot의 번호 입력
+    slots[slot]=command;
+  }
+  public void buttonasPressed(int slot){
+    slots[slot].execute();
+  }
+}

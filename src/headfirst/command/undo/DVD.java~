@@ -1,0 +1,18 @@
+package headfirst.command.undo;
+
+public class DVD{
+  public DVD(){}
+  
+  public void on(){
+    System.out.println("DVD is on");
+  }
+  public void off(){
+    System.out.println("DVD is on");
+  }
+  public int getVolume(){
+    return volume;
+  }
+  public void dim(int volume){
+    this.volume=volume;
+  }
+}
