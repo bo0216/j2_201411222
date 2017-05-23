@@ -1,0 +1,21 @@
+package headfirst.iterator.dinermerger.before;
+
+public class DinerMenu{
+  MenuItem[] menuItems;
+  static final int MAX_ITEMS=3;
+  int numberOfItems =0;
+  public DinerMenu(){
+    menuItems = new MenuItem[MEX_ITEMS];
+    addItem("BLT1","Bacon, Lettuce, Tomato",ture, 2.99);//menuitem에 하나씩 넣는 것
+    addItem("BLT2","Bacon2, Lettuce2, Tomato2",ture, 2.99);
+  
+  }
+  public void addItem(String n, String d, boolean v, double p){
+    MenuItem menuItem = new MenuItem(n,d,v,p);
+    menuItem[numberOfItems]=m;
+    numverOfItems++;
+  }
+  public getMenuItems(){
+    return menuItems;
+  }
+}
