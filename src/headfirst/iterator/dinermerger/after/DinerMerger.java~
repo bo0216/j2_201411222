@@ -1,0 +1,5 @@
+package headfirst.iterator.dinermerger.after;
+
+public class DinerMerger implements Iterator{
+
+}
