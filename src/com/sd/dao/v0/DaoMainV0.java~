@@ -1,0 +1,78 @@
+package com.sd.dao.v0;
+
+import java.sql.*;
+import java.util.Properties;
+import java.io.*;
+
+public class DaoMainV0{
+  public static void main(String[] args){
+    Connection conn = null;//필요할 때 연결하는 것으로
+    Statement stmt = null;
+    try{//DB연결할때는 try-catch문 사용
+      String path = System.getProperty("user.dir");
+      path+="/src/mysql.properties";
+      Properties prop = new Properties();
+      prop.load(new FileInputStream(path));
+      Class.forName("com.mysql.jdbc.Driver");
+      //static Connection getConnection(String url, String user, String password)
+      //conn=DriverManager.getConnection("jdbc:mysql://localhost/test"."root","root");//4단계
+      conn=DriverManager.getConnection(
+           prop.getProperty("URL"),
+           prop.getProperty("USER"),
+           prop.getProperty("PASSWORD"));
+      String mySql = "CREATE TABLE persons(id int(64) NOT NULL AUTO_INCREMENT,";//DDL(생성)
+      mySql+="name varchar(255) NOT NULL, address varchar(255) NOT NULL, UNIQUE (id))";
+      stmt = conn.createStatement(); //executequery의 경우 리턴되는 것은 ResultSet
+      stmt.execute(mySql);
+    } catch(Exception e){
+      e.printStackTrace();
+    } finally{
+      try{
+      if(stmt != null)stmt.close();//안닫아놓으면 메모리 초과 -> 스르르 죽음
+      if(conn != null)conn.close();
+      } catch(Exception e){}     
+      }
+      }
+}
+/*
+
+package com.sd.dao.v0;
+
+import java.sql.*;
+import java.util.Properties;
+import java.io.*;
+
+
+public class DaoMainV0{
+  public static void main(String[] args){
+    Connection conn=null;         //null로 해놓고 필요할 때 연결
+    Statement stmt=null;
+    try{                          //IO할때는 try catch문을 써준다.
+      String path=System.getProperty("user.dir");
+      path+="/src/mysql.properties";
+      Properties prop=new Properties();
+      prop.load(new FileInputStream(path));
+      Class.forName("com.mysql.jbc.Driver");
+      //static Connction getConnection(String url,String user,String password)
+      //conn=DriverManager.getConnection("jdbc:mysql://localhost/test","root","root");
+      conn=DriverManager.getConnection(
+                         prop.getProperty("URL"),
+                         prop.getProperty("USER"),    
+                         prop.getProperty("PASSWORD"));
+    
+    String mySql="CREATE TABLE persons(id int(64) NOT NULL AUTO_INCREMENT,";
+    mySql+="name varchar(255) NOT NULL, address varchar(255) NOT NULL, UNIQUE (id))";
+    stmt=conn.createStatement();
+    stmt.execute(mySql);
+    } catch(Exception e){
+      e.printStackTrace();
+    } finally{
+      try{
+        if(stmt!=null) stmt.close();
+        if(conn!=null) conn.close();
+      } catch(Exception e){ 
+      }
+    }
+
+  }}
+*/
