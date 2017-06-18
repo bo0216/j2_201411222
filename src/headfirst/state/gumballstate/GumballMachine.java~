@@ -1,0 +1,26 @@
+package headfirst.state.gumballstate;
+
+public class GumballMachine {
+  //final static int SOLD_OUT = 0; //상태를 상수 로 설정해준다
+  State soldOutState;
+  State noQuarterState;
+  State hasQuraterState;
+  State soldState;
+  
+  State state=soldOutState;
+  int count=0; //사탕을 세는 count 
+  
+  public GumballMachine(int count){
+    soldOutState=new SoldOutState(this);
+    noQuarterState=new NoQuarterState(this);
+    hasQuarterState=new HasQuarterState(this);
+    soldState=new SoldState(this);
+    this.count=count;
+    if(count>0)
+      state=noQuarterState;
+  }
+  
+  public void insertQuarter(){
+  
+}
+}

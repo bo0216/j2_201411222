@@ -1,0 +1,12 @@
+package headfirst.state.gumballstate;
+
+public class HasQuarterState implements State{
+  public HasQuarterState(G)
+  
+  public void insertQuarter(){
+    System.out.println(System.out.println("You can't insert another quarter");
+  }//다형성 때문에 if(state==HAS_QUARTER)이 사라짐
+  public void ejectQurater();
+  public void turnCrank();
+  public void dispense();
+}

@@ -1,0 +1,5 @@
+package headfirst.state.gumballstate;
+
+public interface State{
+  public void insertQuarter();
+}
